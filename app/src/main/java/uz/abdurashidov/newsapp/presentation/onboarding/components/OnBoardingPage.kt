@@ -22,7 +22,7 @@ import uz.abdurashidov.newsapp.presentation.Dimens.MediumPadding1
 import uz.abdurashidov.newsapp.presentation.Dimens.MediumPadding2
 import uz.abdurashidov.newsapp.presentation.onboarding.Page
 import uz.abdurashidov.newsapp.presentation.onboarding.pages
-import uz.abdurashidov.newsapp.ui.theme.NewsAppTheme
+import uz.abdurashidov.newsapp.presentation.ui.theme.NewsAppTheme
 
 @Composable
 fun OnBoardingPage(
