@@ -31,7 +31,9 @@ import uz.abdurashidov.newsapp.presentation.onboarding.components.PageIndicator
 
 @OptIn(ExperimentalFoundationApi::class)
 @Composable
-fun OnBoardingScreen() {
+fun OnBoardingScreen(
+    event: (OnBoardingEvent) -> Unit
+) {
 
     Column(modifier = Modifier.fillMaxSize()) {
 
@@ -87,8 +89,8 @@ fun OnBoardingScreen() {
                     text = buttonState.value[1],
                     onClick = {
                         scope.launch {
-                            if (pageState.currentPage == 3) {
-
+                            if (pageState.currentPage == 2) {
+                                event(OnBoardingEvent.SaveAppEntry)
                             } else {
                                 Log.d("PagerNumber", "OnBoardingScreen: ${pageState.currentPage}")
                                 pageState.animateScrollToPage(page = pageState.currentPage + 1)
