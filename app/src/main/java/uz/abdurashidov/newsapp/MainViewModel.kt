@@ -1,6 +1,5 @@
 package uz.abdurashidov.newsapp
 
-import androidx.compose.runtime.State
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
@@ -10,7 +9,7 @@ import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
-import uz.abdurashidov.newsapp.domain.usecases.AppEntryUseCase
+import uz.abdurashidov.newsapp.domain.usecases.appentry.AppEntryUseCase
 import uz.abdurashidov.newsapp.presentation.nvgraph.Route
 import javax.inject.Inject
 

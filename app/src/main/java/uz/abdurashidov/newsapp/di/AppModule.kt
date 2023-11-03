@@ -7,9 +7,9 @@ import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
 import uz.abdurashidov.newsapp.data.manager.LocalUserManagerImpl
 import uz.abdurashidov.newsapp.domain.manager.LocalUserManager
-import uz.abdurashidov.newsapp.domain.usecases.AppEntryUseCase
-import uz.abdurashidov.newsapp.domain.usecases.ReadAppEntry
-import uz.abdurashidov.newsapp.domain.usecases.SaveAppEntry
+import uz.abdurashidov.newsapp.domain.usecases.appentry.AppEntryUseCase
+import uz.abdurashidov.newsapp.domain.usecases.appentry.ReadAppEntry
+import uz.abdurashidov.newsapp.domain.usecases.appentry.SaveAppEntry
 import javax.inject.Singleton
 
 @Module
