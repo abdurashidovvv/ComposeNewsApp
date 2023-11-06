@@ -1,5 +1,6 @@
 package uz.abdurashidov.newsapp
 
+import NavGraph
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
@@ -7,6 +8,7 @@ import androidx.activity.viewModels
 import androidx.compose.foundation.background
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.SideEffect
 import androidx.compose.ui.Modifier
@@ -15,7 +17,6 @@ import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import androidx.core.view.WindowCompat
 import com.google.accompanist.systemuicontroller.rememberSystemUiController
 import dagger.hilt.android.AndroidEntryPoint
-import uz.abdurashidov.newsapp.presentation.nvgraph.NavGraph
 import uz.abdurashidov.newsapp.presentation.ui.theme.NewsAppTheme
 
 @AndroidEntryPoint
@@ -26,26 +27,28 @@ class MainActivity : ComponentActivity() {
         WindowCompat.setDecorFitsSystemWindows(window, false)
         installSplashScreen().apply {
             setKeepOnScreenCondition {
-                viewModel.splashCondition
+                viewModel.splashCondition.value
             }
         }
 
         setContent {
             NewsAppTheme {
 
-                val isSystemDarkMode= isSystemInDarkTheme()
-                val systemContentControl= rememberSystemUiController()
-
+                val isSystemInDarkMode = isSystemInDarkTheme()
+                val systemUiColor = rememberSystemUiController()
                 SideEffect {
-                    systemContentControl.setSystemBarsColor(
+                    systemUiColor.setSystemBarsColor(
                         color = Color.Transparent,
-                        darkIcons = !isSystemDarkMode
+                        darkIcons = !isSystemInDarkMode
                     )
                 }
-
-                Box(modifier = Modifier.background(color = MaterialTheme.colorScheme.background)) {
-                    val startDestination = viewModel.startDestination
-                    NavGraph(startingDestination = startDestination)
+                //Add fillMaxSize()
+                Box(
+                    modifier = Modifier
+                        .background(MaterialTheme.colorScheme.background)
+                        .fillMaxSize()
+                ) {
+                    NavGraph(startDestination = viewModel.startDestination.value)
                 }
             }
         }

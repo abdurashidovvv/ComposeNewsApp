@@ -1,14 +1,25 @@
 package uz.abdurashidov.newsapp.presentation.nvgraph
 
+import androidx.navigation.NamedNavArgument
+
+
 sealed class Route(
-    val route: String
+    val route: String,
+    val arguments: List<NamedNavArgument> = emptyList()
 ) {
-    object OnBoardingScreen : Route(route = "OnBoardingScreen")
-    object HomeScreen : Route(route = "HomeScreen")
-    object SearchScreen : Route(route = "SearchScreen")
-    object BookmarkScreen : Route(route = "BookmarkScreen")
-    object DetailScreen : Route(route = "DetailScreen")
-    object AppStartNavigation : Route("AppStartNavigation")
-    object NewsNavigation : Route("NewsNavigation")
-    object NewsNavigatorScreen : Route("NewsNavigator")
+    object OnBoardingScreen : Route(route = "onBoardingScreen")
+
+    object HomeScreen : Route(route = "homeScreen")
+
+    object SearchScreen : Route(route = "searchScreen")
+
+    object BookmarkScreen : Route(route = "bookMarkScreen")
+
+    object DetailsScreen : Route(route = "detailsScreen")
+
+    object AppStartNavigation : Route(route = "appStartNavigation")
+
+    object NewsNavigation : Route(route = "newsNavigation")
+
+    object NewsNavigatorScreen : Route(route = "newsNavigator")
 }

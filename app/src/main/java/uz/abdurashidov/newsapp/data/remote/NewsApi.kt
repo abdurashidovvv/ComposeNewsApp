@@ -8,9 +8,9 @@ import uz.abdurashidov.newsapp.utils.Constants.API_KEY
 interface NewsApi {
 
     @GET("everything")
-    fun getNews(
+    suspend fun getNews(
+        @Query("sources") sources: String,
         @Query("page") page: Int,
-        @Query("source") source: String,
         @Query("apiKey") apiKey: String = API_KEY
     ): NewsResponse
 }
