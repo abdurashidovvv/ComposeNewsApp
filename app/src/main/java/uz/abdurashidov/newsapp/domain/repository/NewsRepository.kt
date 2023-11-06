@@ -6,4 +6,5 @@ import uz.abdurashidov.newsapp.domain.model.Article
 
 interface NewsRepository {
     fun getNews(source: List<String>): Flow<PagingData<Article>>
+    fun searchNews(searchQuery: String, source: List<String>): Flow<PagingData<Article>>
 }
