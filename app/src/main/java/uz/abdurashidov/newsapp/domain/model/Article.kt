@@ -1,5 +1,8 @@
 package uz.abdurashidov.newsapp.domain.model
 
+import androidx.room.Entity
+
+@Entity
 data class Article(
     val author: String,
     val content: String,
