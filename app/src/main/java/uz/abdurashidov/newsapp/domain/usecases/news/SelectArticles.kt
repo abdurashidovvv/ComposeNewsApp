@@ -7,7 +7,7 @@ import uz.abdurashidov.newsapp.domain.model.Article
 class SelectArticles(
     private val newsDao: NewsDao
 ) {
-    suspend operator fun invoke(article: Article): Flow<List<Article>> {
+    operator fun invoke(): Flow<List<Article>> {
         return newsDao.getArticles()
     }
 }
