@@ -45,14 +45,17 @@ fun DetailsScreen(
                     context.startActivity(it)
                 }
             }
-        }, onShareClick = {
-            Intent(
-                Intent.ACTION_SEND
-            ).also {
-                it.putExtra(Intent.EXTRA_TEXT, article.url)
-                it.type = "text/plain"
-            }
-        }, onBookmarkClick = { event(DetailsEvent.SaveArticle) }, onBackClick = navigateUp
+        },
+            onShareClick = {
+                Intent(
+                    Intent.ACTION_SEND
+                ).also {
+                    it.putExtra(Intent.EXTRA_TEXT, article.url)
+                    it.type = "text/plain"
+                }
+            },
+            onBookmarkClick = { event(DetailsEvent.UpsertDeleteArticle(article)) },
+            onBackClick = navigateUp
         )
 
         LazyColumn(
