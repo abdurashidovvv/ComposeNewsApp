@@ -17,6 +17,7 @@ import uz.abdurashidov.newsapp.domain.usecases.appentry.ReadAppEntry
 import uz.abdurashidov.newsapp.domain.usecases.appentry.SaveAppEntry
 import uz.abdurashidov.newsapp.domain.usecases.news.GetNews
 import uz.abdurashidov.newsapp.domain.usecases.news.NewsUseCases
+import uz.abdurashidov.newsapp.domain.usecases.news.SearchNews
 import uz.abdurashidov.newsapp.utils.Constants.BASE_URL
 import javax.inject.Singleton
 
@@ -61,7 +62,8 @@ object AppModule {
         newsRepository: NewsRepository
     ): NewsUseCases {
         return NewsUseCases(
-            getNews = GetNews(newsRepository)
+            getNews = GetNews(newsRepository),
+            searchNews = SearchNews(newsRepository)
         )
     }
 }
