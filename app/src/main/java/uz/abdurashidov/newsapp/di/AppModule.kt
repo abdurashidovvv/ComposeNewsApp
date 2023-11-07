@@ -19,9 +19,12 @@ import uz.abdurashidov.newsapp.domain.repository.NewsRepository
 import uz.abdurashidov.newsapp.domain.usecases.appentry.AppEntryUseCase
 import uz.abdurashidov.newsapp.domain.usecases.appentry.ReadAppEntry
 import uz.abdurashidov.newsapp.domain.usecases.appentry.SaveAppEntry
+import uz.abdurashidov.newsapp.domain.usecases.news.DeleteArticle
 import uz.abdurashidov.newsapp.domain.usecases.news.GetNews
 import uz.abdurashidov.newsapp.domain.usecases.news.NewsUseCases
 import uz.abdurashidov.newsapp.domain.usecases.news.SearchNews
+import uz.abdurashidov.newsapp.domain.usecases.news.SelectArticles
+import uz.abdurashidov.newsapp.domain.usecases.news.UpsertArticle
 import uz.abdurashidov.newsapp.utils.Constants.BASE_URL
 import uz.abdurashidov.newsapp.utils.Constants.NEWS_DATABASE_NAME
 import javax.inject.Singleton
@@ -60,10 +63,15 @@ object AppModule {
     @Provides
     @Singleton
     fun provideNewsUseCases(
-        newsRepository: NewsRepository
+        newsRepository: NewsRepository,
+        newsDao: NewsDao
     ): NewsUseCases {
         return NewsUseCases(
-            getNews = GetNews(newsRepository), searchNews = SearchNews(newsRepository)
+            getNews = GetNews(newsRepository),
+            searchNews = SearchNews(newsRepository),
+            upsertArticle = UpsertArticle(newsDao),
+            deleteArticle = DeleteArticle(newsDao),
+            selectArticles = SelectArticles(newsDao)
         )
     }
 
