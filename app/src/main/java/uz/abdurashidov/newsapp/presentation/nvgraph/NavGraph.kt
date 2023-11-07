@@ -7,6 +7,8 @@ import androidx.navigation.navigation
 import uz.abdurashidov.newsapp.presentation.news_navigator.NewsNavigator
 import uz.abdurashidov.newsapp.presentation.nvgraph.Route
 import uz.abdurashidov.newsapp.presentation.onboarding.OnBoardingViewModel
+import uz.abdurashidov.newsapp.presentation.search.SearchScreen
+import uz.abdurashidov.newsapp.presentation.search.SearchViewModel
 
 @Composable
 fun NavGraph(
@@ -30,7 +32,8 @@ fun NavGraph(
             startDestination = Route.NewsNavigatorScreen.route
         ) {
             composable(route = Route.NewsNavigatorScreen.route) {
-                NewsNavigator()
+                val viewModel:SearchViewModel= hiltViewModel()
+                SearchScreen(state = viewModel.state.value, event = viewModel::onEvent, navigate ={} )
             }
         }
     }
