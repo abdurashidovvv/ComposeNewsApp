@@ -42,7 +42,7 @@ fun ArticleList(
 fun ArticleList(
     modifier: Modifier = Modifier,
     articles: LazyPagingItems<Article>,
-    onClick: () -> Unit
+    onClick: (article:Article) -> Unit
 ) {
     val handlePagingResult = handlePagingResult(articles = articles)
 
@@ -54,7 +54,7 @@ fun ArticleList(
         ) {
             items(count = articles.itemCount) {
                 articles[it]?.let {
-                    ArticleCard(article = it, onClick = onClick)
+                    ArticleCard(article = it, onClick = { onClick })
                 }
 
             }

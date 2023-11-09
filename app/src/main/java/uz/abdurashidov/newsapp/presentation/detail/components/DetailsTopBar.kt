@@ -1,5 +1,6 @@
 package uz.abdurashidov.newsapp.presentation.detail.components
 
+import android.content.res.Configuration.UI_MODE_NIGHT_YES
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Search
@@ -16,34 +17,36 @@ import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import uz.abdurashidov.newsapp.R
+import uz.abdurashidov.newsapp.presentation.ui.theme.NewsAppTheme
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun DetailsTopBar(
     onBrowsingClick: () -> Unit,
     onShareClick: () -> Unit,
-    onBookmarkClick: () -> Unit,
-    onBackClick: () -> Unit
+    onBookMarkClick: () -> Unit,
+    onBackClick: () -> Unit,
 ) {
 
     TopAppBar(
-        title = {},
         modifier = Modifier.fillMaxWidth(),
         colors = TopAppBarDefaults.mediumTopAppBarColors(
             containerColor = Color.Transparent,
             actionIconContentColor = colorResource(id = R.color.body),
-            navigationIconContentColor = colorResource(id = R.color.body)
+            navigationIconContentColor = colorResource(id = R.color.body),
         ),
+        title = {},
         navigationIcon = {
             IconButton(onClick = onBackClick) {
                 Icon(
                     painter = painterResource(id = R.drawable.ic_back_arrow),
-                    contentDescription = null
+                    contentDescription = null,
                 )
             }
         },
         actions = {
-            IconButton(onClick = onBookmarkClick) {
+
+            IconButton(onClick = onBookMarkClick) {
                 Icon(
                     painter = painterResource(id = R.drawable.ic_bookmark),
                     contentDescription = null
@@ -61,18 +64,20 @@ fun DetailsTopBar(
                     contentDescription = null
                 )
             }
-        }
+        },
     )
-
 }
 
 @Preview(showBackground = true)
+@Preview(showBackground = true, uiMode = UI_MODE_NIGHT_YES)
 @Composable
 fun DetailsTopBarPreview() {
-    DetailsTopBar(
-        onBrowsingClick = { /*TODO*/ },
-        onShareClick = { /*TODO*/ },
-        onBookmarkClick = { /*TODO*/ }) {
+    NewsAppTheme(dynamicColor = false) {
+        DetailsTopBar(
+            onShareClick = { /*TODO*/ },
+            onBookMarkClick = { /*TODO*/ },
+            onBrowsingClick = {}) {
 
+        }
     }
 }
