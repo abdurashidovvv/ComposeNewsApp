@@ -15,7 +15,7 @@ import androidx.compose.ui.text.font.FontWeight
 import uz.abdurashidov.newsapp.R
 import uz.abdurashidov.newsapp.domain.model.Article
 import uz.abdurashidov.newsapp.presentation.Dimens.MediumPadding1
-import uz.abdurashidov.newsapp.presentation.common.ArticleList
+import uz.abdurashidov.newsapp.presentation.common.ArticlesList
 import uz.abdurashidov.newsapp.presentation.nvgraph.Route
 
 @Composable
@@ -39,6 +39,6 @@ fun BookMarkScreen(
 
         Spacer(modifier = Modifier.height(MediumPadding1))
 
-        ArticleList(articles = state.articles, onClick = { navigateToDetails(it) })
+        ArticlesList(articles = state.articles, onClick = { navigateToDetails(it) })
     }
 }

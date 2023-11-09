@@ -1,6 +1,8 @@
 package uz.abdurashidov.newsapp.presentation.home
 
+import android.util.Log
 import android.widget.Space
+import android.widget.Toast
 import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.basicMarquee
@@ -18,6 +20,7 @@ import androidx.compose.runtime.derivedStateOf
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
@@ -26,7 +29,7 @@ import androidx.paging.compose.LazyPagingItems
 import uz.abdurashidov.newsapp.R
 import uz.abdurashidov.newsapp.domain.model.Article
 import uz.abdurashidov.newsapp.presentation.Dimens.MediumPadding1
-import uz.abdurashidov.newsapp.presentation.common.ArticleList
+import uz.abdurashidov.newsapp.presentation.common.ArticlesList
 import uz.abdurashidov.newsapp.presentation.common.SearchBar
 import uz.abdurashidov.newsapp.presentation.nvgraph.Route
 
@@ -92,12 +95,11 @@ fun HomeScreen(
 
         Spacer(modifier = Modifier.height(MediumPadding1))
 
-        ArticleList(
+        ArticlesList(
             modifier = Modifier.padding(horizontal = MediumPadding1),
-            articles = articles,
-            onClick = {
-                navigateToDetails(it)
-            }
-        )
+            articles = articles
+        ){
+            navigateToDetails(it)
+        }
     }
 }

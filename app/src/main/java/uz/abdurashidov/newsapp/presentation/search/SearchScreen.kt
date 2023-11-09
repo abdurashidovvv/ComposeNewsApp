@@ -11,7 +11,7 @@ import androidx.compose.ui.Modifier
 import androidx.paging.compose.collectAsLazyPagingItems
 import uz.abdurashidov.newsapp.domain.model.Article
 import uz.abdurashidov.newsapp.presentation.Dimens.MediumPadding1
-import uz.abdurashidov.newsapp.presentation.common.ArticleList
+import uz.abdurashidov.newsapp.presentation.common.ArticlesList
 import uz.abdurashidov.newsapp.presentation.common.SearchBar
 import uz.abdurashidov.newsapp.presentation.nvgraph.Route
 
@@ -42,7 +42,7 @@ fun SearchScreen(
 
         state.articles?.let {
             val articles = it.collectAsLazyPagingItems()
-            ArticleList(articles = articles, onClick = {
+            ArticlesList(articles = articles, onClick = {
                 navigateToDetails(it)
             })
         }
