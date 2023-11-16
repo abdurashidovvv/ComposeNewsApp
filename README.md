@@ -31,3 +31,4 @@ Compose News App is a modern Android application built using Jetpack Compose, Cl
 1. Clone the repository:
 
 ```bash
+git clone https://github.com/abdurashidovvv/ComposeNewsApp.git
