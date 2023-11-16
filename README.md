@@ -6,12 +6,6 @@
 
 Compose News App is a modern Android application built using Jetpack Compose, Clean Architecture, MVVM, Paging3, Retrofit, Room, DaggerHilt, and DataStore.
 
-## Features
-
-- [ ] Feature 1
-- [ ] Feature 2
-- [ ] Feature 3
-
 ## Tech Stack
 
 - **Jetpack Compose**: Modern Android UI toolkit.
